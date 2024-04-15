@@ -2,15 +2,28 @@
   <div class="hello">
     <h1>{{message}}</h1>
    <h2>hihi</h2>
+   <h3>{{fullName}}</h3>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      firstName: 'Omar',
+      lastName: 'Lar',
+    };
+  },
+  computed: {
+    fullName() {
+      return this.firstName + ' ' + this.lastName;
+    },
+  },
   props: {
-    message: String ,
-  }
-}
+    message: String,
+  },
+};
+
 </script>
 
 <style scoped>
