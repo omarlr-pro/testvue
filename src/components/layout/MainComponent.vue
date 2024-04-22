@@ -1,17 +1,38 @@
 <template>
-  <div class="hello">
-    <h1>{{ message }}</h1>
-   
+  <div>
+    <p>Count: {{ count }}</p>
+    <p>Message: {{ message }}</p>
+    <button @click="incr">Increment Count</button>
   </div>
 </template>
 
 <script>
+import { watch } from 'vue';
+
 export default {
+  data() {
+    return {
+      count: 0,
+    };
+  },
   props: {
-    message: String ,
+    message: String,
+  },
+  watch: {
+    count(newVal, oldVal) {
+      console.log(newVal, oldVal);
+    }
+  },
+  
+  methods: {
+    incr() {
+      this.count++;
+    }
   }
 }
 </script>
+
+
 
 <style scoped>
 .hello{
